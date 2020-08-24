@@ -53,20 +53,25 @@ class Graph{
     } // fin while   
  }//fin bfs
 } // fin class Graph
-var test = new Graph(7);
-var sommets = ['A','B','C','D','E','F','G'];
+var sommets = ['A','B','C','D','E','F','G','I','J'];
+var test = new Graph(9);
 for(var i = 0; i < sommets.length; i++)
    test.addsommet(sommets[i]);
    test.addchemin('A','B');
    test.addchemin('A','E');
    test.addchemin('A','D');
-   test.addchemin('B','G');
+   //test.addchemin('B','G');
    test.addchemin('B','C');
-   test.addchemin('C','G');
+   //test.addchemin('C','G');
    test.addchemin('C','E');
    test.addchemin('C','F');
    test.addchemin('D','E');
    test.addchemin('E','F');
+   test.addchemin('E','I');
+   test.addchemin('E','G');
+   test.addchemin('F','G');
+   test.addchemin('I','G');
+   test.addchemin('G','J');
    test.printgraph();
    console.log(" Parcours en largeur ");
    test.parcours_BFS('A');
