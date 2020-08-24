@@ -69,18 +69,26 @@ class Graph{
  }
 } // fin class Graph
 var test = new Graph(7)
-var tab = ['A','B','C','D','E','F','G'];
+var tab = ['A','B','C','D','E','G','H','I','J','H'];
 for( var i = 0; i < tab.length; i++)
   test.addsommet(tab[i]);
    test.addchemin('A','B');
-   test.addchemin('A','C');
-   test.addchemin('A','D');
-   test.addchemin('B','C');
-   test.addchemin('B','E');
-   test.addchemin('D','G');
-   test.addchemin('C','F');
-   test.addchemin('C','G');
-   test.addchemin('E','F');
+    test.addchemin('A','C');
+    test.addchemin('A','D');
+    test.addchemin('B','E');
+    test.addchemin('C','I');
+    test.addchemin('C','F');
+    test.addchemin('D','H');
+    test.addchemin('E','I');
+    test.addchemin('E','F');
+    test.addchemin('F','H');
+    test.addchemin('F','J');
+    test.addchemin('H','J');
+    test.addchemin('I','G');
+    test.addchemin('I','H');
+    test.addchemin('G','H');
+    test.addchemin('G','J');
+    test.addchemin('J','H');
    test.printgraph();
    console.log("parcours en largeur BFS");
    test.parcours_BFS('A');
