@@ -13,59 +13,58 @@ class Graph{
  printgraph(){
   var getkeys = this.listadj.keys();
   for(var i of getkeys){
-      var listsommet = this.listadj.get(i);
       var conc = " ";
+      var listsommet = this.listadj.get(i);
       for(var j of listsommet)
-          conc = conc + j;
-   console.log(i + " " + "->" + " " + conc);
+         conc = conc + j;
+   console.log(i + " " + " ->" + " " + conc);
   }
- } // end printgraph
+ }// fin printgraph method
  parcours_BFS(startpt){
   function Queue(){
-   this.sommets = [];
+   this.elements = [];
   }
-  Queue.prototype.enqueue = function(v){  
-   return this.sommets[this.sommets.length] = v;
+  Queue.prototype.enqueue = function(v){
+     return this.elements.push(v)
   }
   Queue.prototype.dequeue = function(){
-   return this.sommets.shift();
+     return this.elements.shift();
   }
   Queue.prototype.length = function(){
-   return this.sommets.length;
+     return this.elements.length;
   }
- var dejavue = [];
- var filesommet = new Queue();
- for(i = 0; i < this.nbresommets; i++)
-     dejavue[i] = false;
- dejavue[startpt] = true;
- filesommet.enqueue(startpt);
+  var dejavu = [];
+  var filesommet = new Queue();
+  for(i = 0; i < this.nbresommets; i++)
+      dejavu[i] = false;
+      dejavu[startpt] = true;
+      filesommet.enqueue(startpt);
   while(filesommet.length() > 0){
-     var sommetout = filesommet.dequeue();
-     console.log("sommet visite :" + " " + sommetout);
-     var listsommet = this.listadj.get(sommetout);
-     for(var i in listsommet){
-         if(! dejavue[listsommet[i]]){
-              dejavue[listsommet[i]] = true;
-              filesommet.enqueue(listsommet[i]);
+      var sommetout = filesommet.dequeue();
+      console.log("Sommet visite : " + " " + sommetout);
+      var listsommet = this.listadj.get(sommetout);
+      for(var j in listsommet){
+         if(!dejavu[listsommet[j]]){
+             dejavu[listsommet[j]] = true;
+             filesommet.enqueue(listsommet[j]);
+
          } // fin if
-     } // fin for
-  } // fin while  
- } // fin parcours_BFS
-}//end class graph
+      }// fin for
+  }// fin while
+ }//fin parcours_BFS
+} // fin class graph
 var tab = ['A','B','C','D','E'];
 var test = new Graph(5);
-for(i = 0; i < tab.length; i++)
-    test.addsommet(tab[i]);
-    test.addchemin('A','B');
-    test.addchemin('A','C');
-    test.addchemin('A','D');
-    test.addchemin('B','C');
-    test.addchemin('B','D');
-    test.addchemin('B','E');
-    test.addchemin('C','D');
-    test.addchemin('C','E');
-    test.addchemin('D','E');
-    console.log("Our graph");
-    test.printgraph();
-    console.log("BFS process :");
-    test.parcours_BFS('A');
+for(var i = 0; i < tab.length; i++)
+        test.addsommet(tab[i]);
+        test.addchemin('A','B');
+        test.addchemin('A','C');
+        test.addchemin('A','E');
+        test.addchemin('B','D');
+        test.addchemin('B','E');
+        test.addchemin('C','D');
+        test.addchemin('D','E');
+        console.log("Our Graph :");
+        test.printgraph();
+        console.log("parcours en largeur 'BFS'");
+        test.parcours_BFS('A');
