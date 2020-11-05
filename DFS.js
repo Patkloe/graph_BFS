@@ -37,7 +37,7 @@ class Graph{
  }
 }//end class graph
 var tab = ['A','B','C','D','E','D','F','G','H','I','J','K','L','M','N','O'];
-var test = new Graph(16);
+var test = new Graph(15);
 for (var i =0; i < tab.length; i++)
       test.addsommet(tab[i]);
       test.addchemin('A','B');
